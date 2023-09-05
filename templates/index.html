@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% block bootstrap5_title %}Listado | Laboratorios{% endblock %}
+{% load bootstrap5 %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="container col-12" style="text-align: center;">
+    <br> 
+    <h1>Información de laboratorios</h1>
+  </div>
+  <div class="container col-12" style="text-align: center;">
+  <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">País</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for x in labs|dictsort:"id" %}
+        <tr>
+          <td>{{x.id}}</td>
+          <td>{{x.nombre}}</td>
+          <td>{{x.pais}}</td>
+          <td><a href="/update/{{x.id}}" class="btn btn-warning btn-sm">Editar</a>
+          <td><a href="/delete/{{x.id}}" class="btn btn-danger btn-sm">Eliminar</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endblock %}

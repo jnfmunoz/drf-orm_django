@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% load crispy_forms_tags %}
+
+{% block bootstrap5_title %}Editar | Laboratorio{% endblock %}
+
+{% block content %}
+  <div class="container" style="text-align: center;">
+    <br> 
+    <h1>Editar Laboratorio</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">                
+      <br>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <input type="submit" class="btn btn-primary" value="Editar"/>
+        <a class="btn btn-secondary" href="{% url 'list_laboratorio' %}">Cancelar</a>
+      </form>
+      </div>
+      <br>
+    </div>
+  </div>
+  <br>
+{% endblock %}

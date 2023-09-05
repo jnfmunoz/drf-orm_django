@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+{% block bootstrap5_title %}Delete | Laboratorio{% endblock %}
+{% load bootstrap5 %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container" style="text-align: center;">
+     <br> 
+     <h1>Eliminar Laboratorio</h1>
+    </div>
+    <div class="container">
+     <div class="row">
+      <div class="col-12" style="text-align:center">                
+      <br>
+        <form method="post">
+            {% csrf_token %}
+            <strong>
+                <p>¿Estás seguro de que quieres borrar <b>"{{ lab.nombre  }}"</b>?</p>
+            </strong>
+            <button type="submit" class="btn btn-danger">Sí, confirmo</button>
+            <a class="btn btn-secondary" href="{% url 'list_laboratorio' %}">Cancelar</a>
+        </form>
+      </div>
+     </div>
+    </div>
+{% endblock %}
